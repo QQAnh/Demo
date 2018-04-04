@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.chart.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox fx:id="primaryLayout" alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ChartViewController">
+   <children>
+      <TabPane fx:id="chartChoiceTabPane" prefHeight="350.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab fx:id="totalTb" text="Tổng số">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <BarChart fx:id="moneyTotalChart" title="Tổng số tiền phạt">
+                          <xAxis>
+                            <CategoryAxis fx:id="moneyTotalXAxis" animated="false" autoRanging="false" pickOnBounds="false" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="moneyTotalYAxis" animated="false" label="VNĐ" maxWidth="60.0" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="pushUpTotalChart" legendVisible="false" title="Tổng số lần chống đẩy">
+                          <xAxis>
+                            <CategoryAxis fx:id="pushUpTotalXAxis" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="pushUpTotalYAxis" label="Số lần chống đẩy" maxHeight="60.0" prefHeight="60.0" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+          <Tab fx:id="detailTab" text="Chi tiết">
+               <content>
+                  <VBox fx:id="detailVBox" alignment="TOP_CENTER">
+                     <children>
+                        <BarChart fx:id="moneyDetailChart" title="Số tiền phạt">
+                           <xAxis>
+                              <CategoryAxis fx:id="moneyDetailXAxis" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="moneyDetailYAxis" label="VNĐ" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <BarChart fx:id="pushUpDetailChart" legendVisible="false" title="Số lần chống đẩy">
+                           <xAxis>
+                              <CategoryAxis fx:id="pushUpDetailXAxis" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="pushUpDetailYAxis" label="Số lần chống đẩy" side="LEFT" />
+                           </yAxis>
+                        </BarChart>
+                        <TilePane fx:id="studentPickPane" alignment="CENTER" hgap="10.0" prefHeight="80.0">
+                           <children>
+                              <TextField fx:id="student1Field" promptText="Mời lựa chọn học sinh" />
+                              <TextField fx:id="student2Field" promptText="Mời lựa chọn học sinh" />
+                              <TextField fx:id="student3Field" promptText="Mời lựa chọn học sinh" />
+                           </children>
+                        </TilePane>
+                     </children>
+                  </VBox>
+               </content>
+          </Tab>
+            <Tab text="TOP">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <PieChart title="Tỷ lệ tiền phạt" HBox.hgrow="ALWAYS" />
+                        <PieChart title="Tỷ lệ chống đẩy" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <HBox fx:id="datePickHBox" alignment="CENTER" prefHeight="50.0" prefWidth="600.0">
+         <children>
+            <DatePicker fx:id="fromDatePick" promptText="Từ ngày" />
+            <Label alignment="CENTER" prefWidth="70.0" text="&lt;&gt;">
+               <font>
+                  <Font name="Arial" size="30.0" />
+               </font>
+            </Label>
+            <DatePicker fx:id="toDatePick" promptText="Đến ngày" />
+         </children>
+      </HBox>
+   </children>
+</VBox>
